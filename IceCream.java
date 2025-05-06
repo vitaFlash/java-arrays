@@ -1,3 +1,6 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
 public class IceCream {
     public static void main(String[] args) {
         
@@ -30,5 +33,37 @@ public class IceCream {
 
         //Mira en el ejemplo los saltos de línea que has de tener.
     
+
+    //Crea un array con los sabores de helado
+    String [] sabores = {"Chocolate", "Fresa", "Vainilla", "Menta", "Café", "Nuez", "Coco", "Mora", "Pistacho", "Caramelo"};
+    String [] saboresElegidos;
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("¡Hola! Bienvenido a la heladería.");
+    System.out.print("¿Cuántas bolas de helado quieres?: ");
+    int bolasElegidas = scanner.nextInt();
+    scanner.nextLine();
+
+    if (bolasElegidas < 1 || bolasElegidas > 10) {
+        System.out.println("El número de bolas debe estar entre 1 y 10.");
+        System.exit(0);
     }
-} 
+
+    saboresElegidos = new String[bolasElegidas];
+    System.out.println("¡Perfecto! Ahora escoge de que sabor quieres cada helado: ");
+    for (int i = 0; i < sabores.length; i++) {
+        System.out.println(i + ". " + sabores[i]);
+    }
+    for (int i = 0; i < bolasElegidas; i++) {
+        System.out.print(i + ". ");
+        String saborElegido = scanner.nextLine();
+        saboresElegidos[i] = saborElegido;
+    }
+    System.out.println("¡Gracias por tu orden! Has pedido los siguientes sabores:");
+    for (int i = 0; i < bolasElegidas; i++) {
+        System.out.println(i + ". " + saboresElegidos[i]);
+    }
+    System.out.print("¿Es correcto? presiona cualquier tecla para continuar");
+    scanner.nextLine();
+    System.out.println("¡Listo, tenemos tu orden! Acércate al mostrador y Robotina te entregará tu helado");
+}
+}
